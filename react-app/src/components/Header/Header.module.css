@@ -1,0 +1,17 @@
+.navbar {
+    padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navtext {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-size: 43px;
+  cursor: pointer;
+}
+
+.menu-items {
+  padding-top: 19px;
+  display: flex;
+}

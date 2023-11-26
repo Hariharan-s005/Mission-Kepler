@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Lelah Nicholas",
+    "place": "Troy, MI",
+    "tags": ["clothes", "stern"],
+    "src": "https://i.pravatar.cc/150?u=a042581f4e29026704d"
+  },
+  {
+    "name": "Jesus Weiss",
+    "place": "Fort Worth, TX",
+    "tags": ["headset", "gadget", "speed", "winter"],
+    "src": "https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk"
+  },
+  {
+    "name": "Annie Rice",
+    "place": "Austin, TX",
+    "tags": ["road", "mountain", "trip", "earth", "nature"],
+    "src": "https://i.pravatar.cc/150?img=1"
+  },
+  {
+    "name": "Robert Brower",
+    "place": "Cincinnati, OH",
+    "tags": ["maintenance", "gears", "frames", "repair"],
+    "src": "https://gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg"
+  },
+  {
+    "name": "Amy Campbell",
+    "place": "Warrior, AL",
+    "tags": ["music", "disks"],
+    "src": "https://i.pravatar.cc/150?img=5"
+  },
+  {
+    "name": "Anthony S. Morin",
+    "place": "Lyndhurst, NJ",
+    "tags": ["vintage", "electric"],
+    "src": "https://i.pravatar.cc/150?img=3"
+  }
+]

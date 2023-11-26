@@ -1,0 +1,6 @@
+img {
+  clip-path: circle();
+  width: 137px;
+  object-fit: cover;
+  height: 137px;
+}

@@ -1,0 +1,32 @@
+.user-card {
+  width: 461px;
+  min-height: 293px;
+  background-color: #fbfcff;
+  border: 2px solid transparent;
+  border-radius: 20px;
+}
+.user-card:hover {
+  cursor: pointer;
+  border: 2px solid #d1d7ec;
+  box-shadow: 1px 3px 17px 1px #dee3f2;
+}
+.user-card .profile-picture-container {
+  display: flex;
+}
+
+.user-card .user-details-container {
+  display: flex;
+  padding: 32px;
+  gap: 25px;
+}
+
+.user-card .user-details-container .user-details {
+  padding-top: 30px;
+}
+.user-card .user-details-container .user-details h2 {
+  font-family: "Merriweather", serif;
+}
+.user-card .user-details-container .user-details h3 {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+}
