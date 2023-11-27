@@ -8,7 +8,7 @@ const UserSearch = () => {
         placeholder="Search users"
         className={styles["user-search-input"]}
       ></input>
-      <i class="fa fa-search" aria-hidden="true"></i>
+      <i className="fa fa-search" aria-hidden="true"></i>
     </div>
   );
 };
