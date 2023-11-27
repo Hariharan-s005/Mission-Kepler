@@ -3,8 +3,8 @@ import Header from "../components/Header/Header";
 import UserCard from "../components/UserCard/UserCard";
 import UserData from "../data/data.json";
 const Users = () => {
-  const userList = UserData.map((data, index) => (
-    <UserCard key={index} data={data} />
+  const userList = UserData.map((data) => (
+    <UserCard key={data.id} data={data} />
   ));
   return (
     <>
