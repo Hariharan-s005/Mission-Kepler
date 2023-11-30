@@ -1,7 +1,7 @@
-import "./App.css";
 import Users from "./pages/Users";
-const App=()=> {
+
+const App = () => {
   return <Users />;
-}
+};
 
 export default App;

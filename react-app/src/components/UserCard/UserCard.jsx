@@ -1,4 +1,5 @@
 import style from "./UserCard.module.css";
+import { constants } from "../Constants/constants";
 import UserProfilePicture from "../UserProfilePicture/UserProfilePicture";
 import Tag from "../Tag/Tag";
 
@@ -7,10 +8,7 @@ const UserCard = ({ data = {} }) => {
     <div className={style["user-card"]}>
       <div className={style["user-details-container"]}>
         <div className={style["profile-picture-container"]}>
-          <UserProfilePicture
-            src={data.src}
-            alt={data.name + " 's profile picture"}
-          />
+          <UserProfilePicture src={data.src} alt={constants.imageAltText} />
         </div>
         <div className={style["user-details"]}>
           <h2>{data.name}</h2>

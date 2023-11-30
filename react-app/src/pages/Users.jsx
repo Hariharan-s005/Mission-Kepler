@@ -7,10 +7,10 @@ const Users = () => {
     <UserCard key={data.id} data={data} />
   ));
   return (
-    <>
+    <div className={style["users-page-wrapper"]}>
       <Header />
       <div className={style["user-card-container"]}>{userList}</div>
-    </>
+    </div>
   );
 };
 
