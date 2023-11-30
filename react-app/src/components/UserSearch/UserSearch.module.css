@@ -14,13 +14,13 @@
   outline: none;
   padding-left: 15px;
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 19px;
 }
 .user-search-input::-webkit-input-placeholder {
   font-weight: 600;
 }
 .user-search i {
-  font-size: 35px;
+  font-size: 39px;
   -webkit-text-stroke: 3px white;
   cursor: pointer;
 }
