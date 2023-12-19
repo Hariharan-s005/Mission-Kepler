@@ -1,0 +1,16 @@
+.emptyCartcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.emptyCartcontainer div {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.emptyCartcontainer .icon {
+  font-size: 30px;
+  padding: 2px 0 0 5px;
+}

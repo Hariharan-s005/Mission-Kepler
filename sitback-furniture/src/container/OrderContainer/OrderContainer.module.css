@@ -1,0 +1,18 @@
+.orderContainer {
+  background-color: #f7f7f7;
+  padding: 75px 160px;
+}
+.orderContainer h2 {
+  font-weight: 600;
+  font-size: 22px;
+}
+.orderContainer h3 {
+  font-weight: 400;
+  font-size: 16px;
+  padding: 13px 0;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,75 @@
+.cartContainer {
+  width: 425px;
+  height: 90vh;
+  background-color: #f7f7f7;
+  position: sticky;
+  right: 0;
+  top: 80px;
+}
+
+.cartWrapper {
+  padding: 40px 40px 0;
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: left;
+  column-gap: 40px;
+  font-size: 16.5px;
+  background-color: #f7f7f7;
+  font-weight: 300;
+  color: #8d8d8d;
+  box-shadow: none;
+  height: 30px;
+}
+
+.selectedTab {
+  color: black;
+  font-weight: 500;
+  border-bottom: 2px black solid;
+  cursor: pointer;
+}
+
+.cartContentWrapper {
+  height: 80vh;
+  margin: 30px 0 0;
+  padding-bottom: 100px;
+  overflow-y: auto;
+  background-color: #f7f7f7;
+}
+.cartContentWrapper ::-webkit-scrollbar {
+  display: none;
+}
+
+.cartFooter {
+  display: flex;
+  column-gap: 120px;
+  position: absolute;
+  bottom: -5px;
+  padding: 30px 32px 30px 50px;
+  margin-left: -40px;
+  background-color: #fff;
+  box-shadow: -2px -2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.amountContainer :nth-child(2) {
+  margin-top: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.placeOrderButton {
+  border: none;
+  background-color: black;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 0 0 6px 0;
+}

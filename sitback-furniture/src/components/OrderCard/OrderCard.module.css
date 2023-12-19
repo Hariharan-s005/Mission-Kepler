@@ -1,0 +1,26 @@
+.orderCard {
+  width: 380px;
+  margin: 20px;
+}
+.orderCard h3 {
+  font-size: 12px;
+  padding: 7px 0;
+}
+.orderCard img {
+  height: 180px;
+  border-radius: 0 9px 9px 9px;
+}
+
+.nameAndPrice {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.cardDescription {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 20px;
+}

@@ -1,0 +1,26 @@
+.category-cards-container {
+  margin: 3.5rem 9.6rem;
+}
+.category-cards-container h1 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+.category-cards-container h2 {
+  padding: 1.1rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.category-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.copyright-container {
+  background-color: #eeeeee;
+}
+.copyright-container h2 {
+  padding: 1rem 0 1rem 9.4rem;
+  font-size: 1rem;
+  font-weight: 300;
+}
