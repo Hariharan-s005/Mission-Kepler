@@ -1,16 +1,15 @@
-.emptyCartcontainer {
+.empty-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 70vh;
 }
 
-.emptyCartcontainer div {
-  font-weight: 300;
-  font-size: 18px;
+.empty-container .empty-text {
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
-.emptyCartcontainer .icon {
-  font-size: 30px;
-  padding: 2px 0 0 5px;
+.empty-container .icon {
+  font-size: 2rem;
 }

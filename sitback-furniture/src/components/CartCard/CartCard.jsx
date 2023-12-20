@@ -4,19 +4,14 @@ import Button from "../Button/Button";
 import { convertToRupee } from "../../utils/utils";
 import { buttonNames } from "../../constants/constants";
 
-export const CartCard = ({
-  wishlist,
-  removeFromWishlist,
-  isMyCart,
-  addToCart,
-}) => {
+export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, }) => {
   const removeWishlist = () => {
     removeFromWishlist(wishlist);
   };
   const price = convertToRupee(wishlist.price);
   return (
-    <div className={style.cartCardContainer}>
-      <div className={style.cartCardWrapper}>
+    <div className={style["cart-cards-container"]}>
+      <div className={style["cart-card"]}>
         <div className={style.imgContainer}>
           <img src={wishlist.photo} alt={wishlist.name} />
         </div>

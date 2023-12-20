@@ -64,8 +64,8 @@ const ShoppingPage = () => {
   useEffect(() => {
     const tempCartData = localStorage.getItem(localStorageVariable.cart);
     const myCartData = JSON.parse(tempCartData);
-    const tempWishLisData = localStorage.getItem(localStorageVariable.wishlist);
-    const wishListData = JSON.parse(tempWishLisData);
+    const tempWishListData = localStorage.getItem(localStorageVariable.wishlist);
+    const wishListData = JSON.parse(tempWishListData);
     setCart(myCartData);
     setWishlist(wishListData);
     setStatus();
@@ -88,7 +88,7 @@ const ShoppingPage = () => {
 
         {(wishlist && wishlist?.length !== 0) ||
         (cart && cart?.length !== 0) ? (
-          <div className={style.cartContainer}>
+          <div>
             <CartContainer
               wishlist={wishlist}
               myCart={cart}

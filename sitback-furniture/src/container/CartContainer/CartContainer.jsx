@@ -1,12 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import style from "../CartContainer/CartContainer.module.css";
 import CartCard from "../../components/CartCard/CartCard";
 import CartEmpty from "../../components/CartEmpty/CartEmpty";
-import { buttonNames } from "../../constants/constants";
-
+import { buttonNames,cartConstants } from "../../constants/constants";
 
 export const CartContainer = ({
   wishlist,
@@ -23,14 +21,14 @@ export const CartContainer = ({
   const navigateToConfirmOrder = () => {
     navigate(`/confirmOrder`);
   };
-  const wishlistCard = wishlist?.map((card, index) => (
+  const wishlistCards = wishlist?.map((card, index) => (
     <CartCard
       wishlist={card}
       key={index}
       removeFromWishlist={removeFromWishlist}
     />
   ));
-  const myCartCard = myCart?.map((ele, ind) => (
+  const myCartCards = myCart?.map((ele, ind) => (
     <CartCard
       wishlist={ele}
       key={ind}
@@ -40,58 +38,55 @@ export const CartContainer = ({
     />
   ));
   return (
-    <div className={style.cartContainer}>
-      <div className={style.cartWrapper}>
-        <header className={style.cartHeader}>
-          <p
-            onClick={() => cartTabToggle(false, true)}
-            className={isCartActive ? style.selectedTab : ""}
-          >
-            MY CART
-          </p>
-          <p
-            onClick={() => cartTabToggle(true, false)}
-            className={isWishlistactive ? style.selectedTab : ""}
-          >
-            MY WISHLIST
-          </p>
-        </header>
-        <main className={style.cartContentWrapper}>
-          {isWishlistactive ? (
-            wishlist?.length !== 0 ? (
-              <>{wishlistCard}</>
-            ) : (
-              <>
-                <CartEmpty />
-              </>
-            )
-          ) : myCart?.length !== 0 ? (
-            <>{myCartCard}</>
+    <div className={style["cart-container"]}>
+      <header className={style["cart-title"]}>
+        <p
+          onClick={() => cartTabToggle(false, true)}
+          className={isCartActive ? style["active-tab"] : ""}
+        >
+          {cartConstants.MY_WISHLIST}
+        </p>
+        <p
+          onClick={() => cartTabToggle(true, false)}
+          className={isWishlistactive ? style["active-tab"] : ""}
+        >
+          {cartConstants.MY_WISHLIST}
+        </p>
+      </header>
+      <div className={style["cart-content-wrapper"]}>
+        {isWishlistactive ? (
+          wishlist?.length !== 0 ? (
+            <>{wishlistCards}</>
           ) : (
             <>
               <CartEmpty />
             </>
-          )}
-        </main>
-        {isCartActive && myCart?.length ? (
-          <footer className={style.cartFooter}>
-            <div className={style.amountContainer}>
-              <p className={style.title}>TOTAL AMOUNT</p>
-              <p>{totalPrice}</p>
-            </div>
-            <Button
-              name={buttonNames.PLACE_ORDER}
-              style={style.placeOrderButton}
-              onClick={navigateToConfirmOrder}
-            ></Button>
-          </footer>
+          )
+        ) : myCart?.length !== 0 ? (
+          <>{myCartCards}</>
         ) : (
-          ""
+          <>
+            <CartEmpty />
+          </>
         )}
       </div>
+      {isCartActive && myCart?.length!==0 ? (
+        <div className={style["place-order-tab"]}>
+          <div className={style["amount-container"]}>
+            <h3 className={style["amount-text"]}>{cartConstants.TOTAL_AMOUNT}</h3>
+            <h2 className={style["total-price"]}>{`₹ ${totalPrice}`}</h2>
+          </div>
+          <Button
+            name={buttonNames.PLACE_ORDER}
+            style={style["place-order-button"]}
+            onClick={navigateToConfirmOrder}
+          ></Button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
-
 
 export default CartContainer;

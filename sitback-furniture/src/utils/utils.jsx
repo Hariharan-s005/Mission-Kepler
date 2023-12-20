@@ -54,8 +54,3 @@ export const convertToRupee = (price) => {
 export const convertGuaranteeCaption = (guarantee) => {
   return guarantee === 1 ? `1 YEAR GUARANTEE` : `${guarantee} YEARS GUARANTEE`;
 };
-
-export const formResultCard = (name = "", homeTown = "", destination = "") => {
-    return `Thank You ${name} for expressing your interest in travelling with us .Our Sales team will get back with the best packages from ${homeTown} to ${destination}.`;
-};
-  

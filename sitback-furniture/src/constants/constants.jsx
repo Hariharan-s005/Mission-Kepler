@@ -31,6 +31,15 @@ export const orderPageConstants = {
 export const orderCardConstants={
   quantity:"Quantity"
 };
+export const cartConstants={
+  MY_CART:"MY CART",
+  MY_WISHLIST:"MY WISHLIST",
+  TOTAL_AMOUNT:"TOTAL AMOUNT"
+
+}
+export const cartEmptyConstants={
+  empty:"No items present"
+}
 export const catogoriesPageConstants = {
   CatogoriesHeading: "Your Home, With Love",
   CatogoriesSubHeading: "Come, Choose from millons of products",
