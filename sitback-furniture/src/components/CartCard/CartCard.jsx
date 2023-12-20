@@ -3,8 +3,11 @@ import style from "../CartCard/CartCard.module.css";
 import Button from "../Button/Button";
 import { convertToRupee } from "../../utils/utils";
 import { buttonNames } from "../../constants/constants";
-
+import missingImage from "../../assets/default-image.jpeg";
 export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, }) => {
+  const missingImageHandler = (e) => {
+    e.target.src = missingImage;
+}
   const removeWishlist = () => {
     removeFromWishlist(wishlist);
   };
@@ -13,7 +16,7 @@ export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, })
     <div className={style["cart-cards-container"]}>
       <div className={style["cart-card"]}>
         <div className={style.imgContainer}>
-          <img src={wishlist.photo} alt={wishlist.name} />
+          <img src={wishlist.photo} alt={wishlist.name} onError={missingImageHandler}/>
         </div>
         <div className={style.cartdetailsContainer}>
           <h3>{wishlist.name}</h3>

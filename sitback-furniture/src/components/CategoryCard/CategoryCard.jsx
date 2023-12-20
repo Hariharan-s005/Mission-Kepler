@@ -3,7 +3,7 @@ import style from "./CategoryCard.module.css";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { buttonNames } from "../../constants/constants";
-import missingImage from "../../assets/default-image.jpeg"  ;
+import missingImage from "../../assets/default-image.jpeg";
 export const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
   const navigateToCategory = () => {
