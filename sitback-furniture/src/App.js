@@ -1,4 +1,3 @@
-import "./App.css";
 import HomePage from "./page/HomePage/HomePage";
 import  ShoppingPage  from './page/ShoppingPage/ShoppingPage.jsx';
 import { Routes, Route } from "react-router-dom";
