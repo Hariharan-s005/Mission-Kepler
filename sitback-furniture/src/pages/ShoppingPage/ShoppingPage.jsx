@@ -4,8 +4,8 @@ import style from "./ShoppingPage.module.css";
 import Header from "../../components/Header/Header.jsx";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import CartContainer from "../../containers/CartContainer/CartContainer.jsx";
-import { fetchProduct } from "../../services/ApiService.jsx";
-import {addtoWishList,removeDataFromWishlist, addDataToCart} from "../../utils/utils.shopping.jsx";
+import { fetchProduct } from "../../services/apiService.jsx";
+import { addtoWishList,removeDataFromWishlist,addDataToCart} from "../../utils/utils.shopping.jsx";
 import { convertToRupee } from "../../utils/utils.coversion.jsx";
 import { localStorageVariableConstants } from "../../constants/localStorageVariableConstants";
 
@@ -26,7 +26,9 @@ const ShoppingPage = () => {
   };
 
   const setStatus = () => {
-    const Cart = JSON.parse(localStorage.getItem(localStorageVariableConstants.cart));
+    const Cart = JSON.parse(
+      localStorage.getItem(localStorageVariableConstants.cart)
+    );
     Cart && Cart.length !== 0 ? setCartActive(true) : setWishlistActive(true);
   };
 
@@ -58,7 +60,9 @@ const ShoppingPage = () => {
   }, [categories]);
 
   useEffect(() => {
-    const tempCartData = localStorage.getItem(localStorageVariableConstants.cart);
+    const tempCartData = localStorage.getItem(
+      localStorageVariableConstants.cart
+    );
     const myCartData = JSON.parse(tempCartData);
     const tempWishListData = localStorage.getItem(
       localStorageVariableConstants.wishlist
@@ -85,7 +89,7 @@ const ShoppingPage = () => {
         <div className={style["product-container"]}>{productCards}</div>
 
         {(wishlist && wishlist?.length !== 0) ||
-        (cart && cart?.length !== 0) ? (
+          (cart && cart?.length !== 0) ? (
           <div>
             <CartContainer
               wishlist={wishlist}

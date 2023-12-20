@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./CategoryCardContainer.module.css";
-import { fetchCategory } from "../../services/ApiService";
+import { fetchCategory } from "../../services/apiService";
 import { homePageConstants } from "../../constants/homePageConstants";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 
@@ -25,8 +25,7 @@ export const CategoryCardContainer = () => {
       </div>
       <div className={style["copyright-container"]}>
         <h2>
-          {homePageConstants.copyrights}{" "}
-          {homePageConstants.currentYear}
+          {homePageConstants.copyrights} {homePageConstants.currentYear}
         </h2>
       </div>
     </>
