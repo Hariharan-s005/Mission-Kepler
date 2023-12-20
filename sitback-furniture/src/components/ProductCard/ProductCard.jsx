@@ -4,8 +4,11 @@ import style from "./ProductCard.module.css";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { convertToRupee, convertGuaranteeCaption } from "../../utils/utils";
 import { buttonNames } from "../../constants/constants";
-
+import missingImage from "../../assets/default-image.jpeg";
 const ItemsCard = ({ items, manageWishlist, manageCart }) => {
+  const missingImageHandler = (e) => {
+    e.target.src = missingImage;
+  };
   const addToWishList = () => {
     manageWishlist(items);
   };
@@ -18,7 +21,7 @@ const ItemsCard = ({ items, manageWishlist, manageCart }) => {
 
   return (
     <div className={style["product-card"]}>
-      <img src={items?.photo} alt={items?.name} />
+      <img src={items?.photo} alt={items?.name} onError={missingImageHandler}/>
       <div className={style["product-details-container"]}>
         <h3>{items?.name}</h3>
         <h3>{`₹ ${price}`}</h3>
