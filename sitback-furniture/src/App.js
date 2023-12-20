@@ -1,14 +1,14 @@
-import HomePage from "./page/HomePage/HomePage";
-import  ShoppingPage  from './page/ShoppingPage/ShoppingPage.jsx';
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import  ShoppingPage  from './pages/ShoppingPage/ShoppingPage.jsx';
 import { Routes, Route } from "react-router-dom";
-import OrderPage from "./page/OrderPage/OrderPage";
+import OrderPage from "./pages/OrderPage/OrderPage.jsx";
 
 function App() {
   return (
-    <>
+
       <Routes>
-        <Route path="/" element={<><HomePage /></>}>
-          <Route path="home" element={<><HomePage /></>}/>
+        <Route path="/" element={<HomePage />}>
+          <Route path="home" element={<HomePage />}/>
         </Route>
 
         <Route path="/categories">
@@ -17,7 +17,7 @@ function App() {
         <Route path="/confirmOrder" element={<OrderPage />} />
       </Routes>
     
-    </>
+ 
   );
 }
 

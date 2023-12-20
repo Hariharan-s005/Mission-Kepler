@@ -1,17 +1,13 @@
-import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import style from "./ShoppingPage.module.css";
 import Header from "../../components/Header/Header.jsx";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
-import CartContainer from "../../container/CartContainer/CartContainer.jsx";
-import { fetchProduct } from "../../service/ApiService.jsx";
-import {
-  addtoWishList,
-  removeDataFromWishlist,
-  addDataToCart,
-} from "../../utils/utils.jsx";
-import { convertToRupee } from "../../utils/utils.jsx";
-import { localStorageVariable } from "../../constants/constants.jsx";
+import CartContainer from "../../containers/CartContainer/CartContainer.jsx";
+import { fetchProduct } from "../../services/ApiService.jsx";
+import {addtoWishList,removeDataFromWishlist, addDataToCart} from "../../utils/utils.shopping.jsx";
+import { convertToRupee } from "../../utils/utils.coversion.jsx";
+import { localStorageVariableConstants } from "../../constants/localStorageVariableConstants";
 
 const ShoppingPage = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -19,7 +15,7 @@ const ShoppingPage = () => {
   const [wishlistActive, setWishlistActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
   const [totalPrice, setTotalPrice] = useState(() =>
-    JSON.parse(localStorage.getItem(localStorageVariable.totalprice))
+    JSON.parse(localStorage.getItem(localStorageVariableConstants.totalprice))
   );
   const { categories } = useParams();
   const [items, setItems] = useState([]);
@@ -30,7 +26,7 @@ const ShoppingPage = () => {
   };
 
   const setStatus = () => {
-    const Cart = JSON.parse(localStorage.getItem(localStorageVariable.cart));
+    const Cart = JSON.parse(localStorage.getItem(localStorageVariableConstants.cart));
     Cart && Cart.length !== 0 ? setCartActive(true) : setWishlistActive(true);
   };
 
@@ -62,10 +58,10 @@ const ShoppingPage = () => {
   }, [categories]);
 
   useEffect(() => {
-    const tempCartData = localStorage.getItem(localStorageVariable.cart);
+    const tempCartData = localStorage.getItem(localStorageVariableConstants.cart);
     const myCartData = JSON.parse(tempCartData);
     const tempWishListData = localStorage.getItem(
-      localStorageVariable.wishlist
+      localStorageVariableConstants.wishlist
     );
     const wishListData = JSON.parse(tempWishListData);
     setCart(myCartData);

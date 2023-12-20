@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./OrderContainer.module.css";
 import PropTypes from "prop-types";
+import { orderPageConstants } from "../../constants/orderPageConstants";
 import OrderCard from "../../components/OrderCard/OrderCard";
-import { orderPageConstants } from "../../constants/constants";
 
 export const OrderContainer = ({ myOrder }) => {
   const productCard = myOrder?.map((card, index) => (

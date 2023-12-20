@@ -1,11 +1,12 @@
 import React from "react";
-import Button from "../Button/Button";
 import style from "./ProductCard.module.css";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
-import { convertToRupee, convertGuaranteeCaption } from "../../utils/utils";
-import { buttonNames } from "../../constants/constants";
+import { convertToRupee, convertGuaranteeCaption } from "../../utils/utils.coversion";
+import { buttonNames } from "../../constants/buttonConstants";
 import missingImage from "../../assets/default-image.jpeg";
-const ItemsCard = ({ items, manageWishlist, manageCart }) => {
+import Button from "../Button/Button";
+
+const ProductCard = ({ items, manageWishlist, manageCart }) => {
   const missingImageHandler = (e) => {
     e.target.src = missingImage;
   };
@@ -47,4 +48,4 @@ const ItemsCard = ({ items, manageWishlist, manageCart }) => {
   );
 };
 
-export default ItemsCard;
+export default ProductCard;

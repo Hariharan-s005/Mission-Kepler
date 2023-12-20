@@ -1,9 +1,10 @@
 import React from "react";
 import style from "../CartCard/CartCard.module.css";
-import Button from "../Button/Button";
-import { convertToRupee } from "../../utils/utils";
-import { buttonNames } from "../../constants/constants";
+import { convertToRupee } from "../../utils/utils.coversion";
+import { buttonNames } from "../../constants/buttonConstants";
 import missingImage from "../../assets/default-image.jpeg";
+import Button from "../Button/Button";
+
 export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, }) => {
   const missingImageHandler = (e) => {
     e.target.src = missingImage;

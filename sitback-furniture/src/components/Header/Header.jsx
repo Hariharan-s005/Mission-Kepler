@@ -2,7 +2,8 @@ import React from "react";
 import style from "./Header.module.css";
 import { Link, NavLink } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
-import { navLinks, headerConstants } from "../../constants/constants";
+import { navLinks} from "../../constants/navLinksConstants";
+import { headerConstants } from "../../constants/headerConstants";
 
 export const Header = () => {
   const navItems = navLinks?.map((navItem, index) => {

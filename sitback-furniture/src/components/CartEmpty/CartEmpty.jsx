@@ -1,7 +1,8 @@
 import React from "react";
-import { IoCartOutline } from "react-icons/io5";
-import { cartEmptyConstants } from "../../constants/constants";
 import style from "./CartEmpty.module.css";
+import { IoCartOutline } from "react-icons/io5";
+import { cartEmptyConstants } from "../../constants/cartEmptyConstants";
+
 
 export const CartEmpty = () => {
   return (

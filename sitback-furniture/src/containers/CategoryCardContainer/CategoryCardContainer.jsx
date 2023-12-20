@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./CategoryCardContainer.module.css";
+import { fetchCategory } from "../../services/ApiService";
+import { homePageConstants } from "../../constants/homePageConstants";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
-import { fetchCategory } from "../../service/ApiService";
-import { catogoriesPageConstants } from "../../constants/constants";
 
 export const CategoryCardContainer = () => {
   const [catogories, setCatogories] = useState([]);
@@ -19,12 +19,15 @@ export const CategoryCardContainer = () => {
   return (
     <>
       <div className={style["category-cards-container"]}>
-        <h1>{catogoriesPageConstants.CatogoriesHeading}</h1>
-        <h2>{catogoriesPageConstants.CatogoriesSubHeading}</h2>
+        <h1>{homePageConstants.CatogoriesHeading}</h1>
+        <h2>{homePageConstants.CatogoriesSubHeading}</h2>
         <div className={style["category-card-container"]}>{categoryCards}</div>
       </div>
       <div className={style["copyright-container"]}>
-        <h2>{catogoriesPageConstants.copyrights}</h2>
+        <h2>
+          {homePageConstants.copyrights}{" "}
+          {homePageConstants.currentYear}
+        </h2>
       </div>
     </>
   );
