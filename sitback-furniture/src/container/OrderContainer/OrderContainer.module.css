@@ -1,18 +1,22 @@
-.orderContainer {
+.order-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   background-color: #f7f7f7;
-  padding: 75px 160px;
+  padding: 4.5rem 9rem;
 }
-.orderContainer h2 {
+.order-container .order-confirmation-title {
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 22px;
 }
-.orderContainer h3 {
+.order-container .order-confirmation-sub-title {
+  font-size: 1rem;
   font-weight: 400;
-  font-size: 16px;
-  padding: 13px 0;
+  padding: 1rem 0;
 }
 
-.cardWrapper {
+.product-card-container {
   display: flex;
   flex-wrap: wrap;
+  gap:2rem;
 }

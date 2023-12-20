@@ -9,10 +9,10 @@ export const OrderContainer = ({ myOrder }) => {
     <OrderCard key={index} product={card} />
   ));
   return (
-    <div className={style.orderContainer}>
-      <h2>{orderPageConstants.orderConformationTitle}</h2>
-      <h3>{orderPageConstants.orderConformationSubTitle}</h3>
-      <div className={style.cardWrapper}>{productCard}</div>
+    <div className={style["order-container"]}>
+      <h2 className={style["order-confirmation-title"]}>{orderPageConstants.orderConformationTitle}</h2>
+      <h3 className={style["order-confirmation-sub-title"]}>{orderPageConstants.orderConformationSubTitle}</h3>
+      <div className={style["product-card-container"]}>{productCard}</div>
     </div>
   );
 };
