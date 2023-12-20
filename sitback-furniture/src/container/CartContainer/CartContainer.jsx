@@ -44,7 +44,7 @@ export const CartContainer = ({
           onClick={() => cartTabToggle(false, true)}
           className={isCartActive ? style["active-tab"] : ""}
         >
-          {cartConstants.MY_WISHLIST}
+          {cartConstants.MY_CART}
         </p>
         <p
           onClick={() => cartTabToggle(true, false)}
