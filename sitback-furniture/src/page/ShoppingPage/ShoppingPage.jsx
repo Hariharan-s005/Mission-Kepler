@@ -1,8 +1,8 @@
-import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import style from "./ShoppingPage.module.css";
 import Header from "../../components/Header/Header.jsx";
+import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import CartContainer from "../../container/CartContainer/CartContainer.jsx";
 import { fetchProduct } from "../../service/ApiService.jsx";
 import {
@@ -64,7 +64,9 @@ const ShoppingPage = () => {
   useEffect(() => {
     const tempCartData = localStorage.getItem(localStorageVariable.cart);
     const myCartData = JSON.parse(tempCartData);
-    const tempWishListData = localStorage.getItem(localStorageVariable.wishlist);
+    const tempWishListData = localStorage.getItem(
+      localStorageVariable.wishlist
+    );
     const wishListData = JSON.parse(tempWishListData);
     setCart(myCartData);
     setWishlist(wishListData);

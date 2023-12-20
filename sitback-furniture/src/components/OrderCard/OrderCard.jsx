@@ -9,16 +9,16 @@ export const OrderCard = ({ product }) => {
     e.target.src = missingImage;
 }
   return (
-    <div className={style.orderCard}>
+    <div className={style["order-card"]}>
       <img src={product.photo} alt={product.name} onError={missingImageHandler}/>
-      <div className={style.nameAndPrice}>
+      <div className={style["order-name-price"]}>
         <p>{product.name}</p>
         <p>{`₹ ${price}`}</p>
       </div>
-      <h3>
+      <h3 className={style.quantity}>
         {orderCardConstants.quantity} : {product.quantity}
       </h3>
-      <p className={style.cardDescription}> {product.description}</p>
+      <p className={style["order-description"]}> {product.description}</p>
     </div>
   );
 };
