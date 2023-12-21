@@ -3,13 +3,15 @@ import style from "./CategoryCardContainer.module.css";
 import { fetchCategory } from "../../services/apiService";
 import { homePageConstants } from "../../constants/homePageConstants";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import Loader from "../../components/Loader/Loader";
 
 export const CategoryCardContainer = () => {
   const [catogories, setCatogories] = useState([]);
-
+  const [isloading, setIsLoading] = useState(true);
   useEffect(() => {
     fetchCategory().then((data) => {
       setCatogories(data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -21,7 +23,14 @@ export const CategoryCardContainer = () => {
       <div className={style["category-cards-container"]}>
         <h1>{homePageConstants.CatogoriesHeading}</h1>
         <h2>{homePageConstants.CatogoriesSubHeading}</h2>
-        <div className={style["category-card-container"]}>{categoryCards}</div>
+
+        {isloading ? (
+          <Loader />
+        ) : (
+          <div className={style["category-card-container"]}>
+            {categoryCards}
+          </div>
+        )}
       </div>
       <div className={style["copyright-container"]}>
         <h2>

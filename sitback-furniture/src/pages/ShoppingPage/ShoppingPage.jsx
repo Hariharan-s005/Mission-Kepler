@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import style from "./ShoppingPage.module.css";
-import Header from "../../components/Header/Header.jsx";
-import ProductCard from "../../components/ProductCard/ProductCard.jsx";
-import CartContainer from "../../containers/CartContainer/CartContainer.jsx";
+import Header from "../../components/Header/Header";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import CartContainer from "../../containers/CartContainer/CartContainer";
+import Loader from "../../components/Loader/Loader";
 import { fetchProduct } from "../../services/apiService.jsx";
-import { addtoWishList,removeDataFromWishlist,addDataToCart} from "../../utils/utils.shopping.jsx";
-import { convertToRupee } from "../../utils/utils.coversion.jsx";
+import { addtoWishList,removeDataFromWishlist,addDataToCart} from "../../utils/utils.shopping";
+import { convertToRupee } from "../../utils/utils.coversion";
 import { localStorageVariableConstants } from "../../constants/localStorageVariableConstants";
 
 const ShoppingPage = () => {
@@ -19,7 +20,7 @@ const ShoppingPage = () => {
   );
   const { categories } = useParams();
   const [items, setItems] = useState([]);
-
+  const [isloading,setIsLoading]=useState(true);
   const cartTabToggle = (isWishlist, isCart) => {
     setWishlistActive(isWishlist);
     setCartActive(isCart);
@@ -56,6 +57,7 @@ const ShoppingPage = () => {
   useEffect(() => {
     fetchProduct(categories).then((data) => {
       setItems(data);
+      setIsLoading(false);
     });
   }, [categories]);
 
@@ -85,6 +87,7 @@ const ShoppingPage = () => {
   return (
     <>
       <Header />
+      {isloading?<Loader/>:
       <div className={style.container}>
         <div className={style["product-container"]}>{productCards}</div>
 
@@ -105,7 +108,7 @@ const ShoppingPage = () => {
         ) : (
           ""
         )}
-      </div>
+      </div>}
     </>
   );
 };
