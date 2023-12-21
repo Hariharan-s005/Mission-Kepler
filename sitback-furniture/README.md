@@ -11,6 +11,7 @@ CategoryCard
 Header
 OrderCard
 ProductCard
+PageNotFound
 
 Containers used:
 CartContainer
@@ -27,7 +28,7 @@ apiService
 
 Constant files used:
 buttonConstants
-cartCOnstants
+cartConstants
 cartEmptyConstants
 headerConstants
 homePageConstants
