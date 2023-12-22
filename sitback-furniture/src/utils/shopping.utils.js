@@ -22,16 +22,14 @@ export const removeDataFromWishlist = (product) => {
 
 export const addDataToCart = (product, quantity) => {
   let cart = JSON.parse(localStorage.getItem(`${localStorageVariableConstants.cart}`));
-  if (cart == null) {
-    let cartProduct = { ...product };
-    cartProduct.quantity = 1;
-    cart = [cartProduct];
+  if (cart == null) { 
+    product.quantity = 1;
+    cart = [product];
   } else {
     let cartProductIndex = cart.findIndex((item) => item.id === product.id);
     if (cartProductIndex === -1) {
-      let cartProduct = { ...product };
-      cartProduct.quantity = 1;
-      cart.push(cartProduct);
+      product.quantity = 1;
+      cart.push(product);
     } else {
       cart[cartProductIndex].quantity += quantity;
       if (cart[cartProductIndex].quantity === 0) {
@@ -42,5 +40,3 @@ export const addDataToCart = (product, quantity) => {
   localStorage.setItem(`${localStorageVariableConstants.cart}`, JSON.stringify(cart));
   return { cart };
 };
-
-
