@@ -1,0 +1,26 @@
+.category-card {
+  width: 28.2rem;
+}
+.category-card img {
+  height: 38rem;
+}
+.category-card h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 0.9rem 0 0.7rem 0;
+}
+.category-card p {
+  font-size: 1rem;
+  line-height: 1.8rem;
+  font-weight: 300;
+}
+.shop-now-button {
+  color: #fff;
+  background-color: #000000;
+  border-radius: 0 0 0.4rem 0;
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.7rem 2rem;
+  margin: 0.9rem 0 0.9rem 0;
+}

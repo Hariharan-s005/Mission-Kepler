@@ -1,0 +1,25 @@
+.order-card {
+  width: 23.5rem;
+  margin: 0.5rem 0.3rem;
+}
+.order-card .quantity {
+  font-size: 0.8rem;
+  padding: 0.6rem 0;
+  font-weight: 100;
+}
+.order-card img {
+  height: 12rem;
+  border-radius: 0 9px 9px 9px;
+}
+.order-name-price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+  font-weight: 600;
+}
+.order-description {
+  font-size: 0.7rem;
+  line-height: 1.3rem;
+  font-weight: 300;
+}

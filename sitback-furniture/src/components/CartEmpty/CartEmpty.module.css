@@ -1,0 +1,16 @@
+.empty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.empty-container .empty-text {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.empty-container .icon {
+  font-size: 3rem;
+  padding-left:1rem;
+}
