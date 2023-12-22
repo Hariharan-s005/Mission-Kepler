@@ -30,10 +30,10 @@ const ShoppingPage = () => {
   };
 
   const setStatus = () => {
-    const Cart = JSON.parse(
+    const cart = JSON.parse(
       localStorage.getItem(localStorageVariableConstants.cart)
     );
-    Cart && Cart.length !== 0 ? setCartActive(true) : setWishlistActive(true);
+    cart && cart.length !== 0 ? setCartActive(true) : setWishlistActive(true);
   };
 
   const manageWishlist = (product) => {
