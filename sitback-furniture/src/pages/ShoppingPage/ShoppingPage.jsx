@@ -23,7 +23,7 @@ const ShoppingPage = () => {
   const [products, setProducts] = useState([]);
   const [isloading, setIsLoading] = useState(true);
   const [productfetchFail, setProductsFetchFail] = useState(false);
-  
+
   const cartTabToggle = (isWishlist, isCart) => {
     setWishlistActive(isWishlist);
     setCartActive(isCart);
@@ -88,7 +88,6 @@ const ShoppingPage = () => {
   const productCards = products?.map((card) => {
     return (
       <ProductCard
-      
         key={card.id}
         product={card}
         manageWishlist={manageWishlist}
