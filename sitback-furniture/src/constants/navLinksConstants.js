@@ -1,15 +1,14 @@
-
 export const navLinks = [
-    {
-      URL: "/categories/couches",
-      NAME: "COUCHES",
-    },
-    {
-      URL: "/categories/chairs",
-      NAME: "CHAIRS",
-    },
-    {
-      URL: "/categories/dining",
-      NAME: "DINING",
-    }
-  ];
+  {
+    url: "/categories/couches",
+    NAME: "COUCHES",
+  },
+  {
+    url: "/categories/chairs",
+    NAME: "CHAIRS",
+  },
+  {
+    url: "/categories/dining",
+    NAME: "DINING",
+  },
+];

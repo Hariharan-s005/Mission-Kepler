@@ -11,17 +11,19 @@
   font-weight: 300;
   line-height: 1.2rem;
 }
-
 .product-details-container {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
 }
-.product-details-container h3 {
+.product-details-container .product-name ,.product-details-container .product-price{
   font-size: 0.9rem;
   font-weight: 600;
 }
-
+.product-details-container .product-price span{
+  font-size:0.9rem;
+  font-weight: 500;
+}
 .guarantee-text-container {
   display: flex;
   gap: 0.25rem;
@@ -33,7 +35,6 @@
   font-size: 0.8rem;
   font-weight: 500;
 }
-
 .add-to-wishlist-button {
   padding: 0.7rem 1.1rem;
   color: #888;
@@ -42,7 +43,9 @@
   font-weight: 600;
   border: none;
 }
-
+.add-to-wishlist-button:hover{
+  color:#000;
+}
 .add-to-cart-button {
   padding: 0.7rem 1.1rem;
   background-color: #000;
@@ -52,7 +55,6 @@
   border-radius: 0 0 0.4rem 0;
   border: none;
 }
-
 .button-container {
   display: flex;
   justify-content: flex-end;

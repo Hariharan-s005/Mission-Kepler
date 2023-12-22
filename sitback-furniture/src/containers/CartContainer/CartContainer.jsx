@@ -1,12 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import style from "../CartContainer/CartContainer.module.css";
-import { buttonNames} from "../../constants/buttonConstants";
-import { cartConstants } from "../../constants/cartConstants";
-import Button from "../../components/Button/Button";
-import CartCard from "../../components/CartCard/CartCard";
-import CartEmpty from "../../components/CartEmpty/CartEmpty";
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import style from '../CartContainer/CartContainer.module.css';
+import Button from '../../components/Button/Button';
+import CartCard from '../../components/CartCard/CartCard';
+import CartEmpty from '../../components/CartEmpty/CartEmpty';
+import { buttonConstants } from '../../constants/buttonConstants';
+import { cartConstants } from '../../constants/cartConstants';
+import { navigationConstants } from '../../constants/navigationConstants';
+import { currencyConstants } from '../../constants/currencyConstants';
+import { convertToRupee } from '../../utils/coversion.utils';
 
 export const CartContainer = ({
   wishlist,
@@ -16,29 +18,38 @@ export const CartContainer = ({
   isWishlistactive,
   isCartActive,
   addToCart,
-  totalPrice,
 }) => {
   const navigate = useNavigate();
 
   const navigateToConfirmOrder = () => {
-    navigate(`/confirmOrder`);
+    navigate(
+      `${navigationConstants.backSlash}${navigationConstants.confirmOrder}`
+    );
   };
-  const wishlistCards = wishlist?.map((card, index) => (
+  const wishlistCards = wishlist?.map((card) => (
     <CartCard
       wishlist={card}
-      key={index}
+      key={card.id}
       removeFromWishlist={removeFromWishlist}
     />
   ));
-  const myCartCards = myCart?.map((ele, ind) => (
+  const myCartCards = myCart?.map((card) => (
     <CartCard
-      wishlist={ele}
-      key={ind}
+      wishlist={card}
+      key={card.id}
       removeFromWishlist={removeFromWishlist}
       isMyCart={true}
       addToCart={addToCart}
     />
   ));
+
+  let totalPrice = 0;
+  if (myCart) {
+    totalPrice = myCart.reduce(
+      (total, cartItem) => total + parseInt(cartItem.quantity * cartItem.price),
+      0
+    );
+  }
   return (
     <div className={style["cart-container"]}>
       <header className={style["cart-title"]}>
@@ -60,32 +71,30 @@ export const CartContainer = ({
           wishlist?.length !== 0 ? (
             <>{wishlistCards}</>
           ) : (
-            <>
-              <CartEmpty />
-            </>
+            <CartEmpty active={isCartActive}/>
           )
         ) : myCart?.length !== 0 ? (
           <>{myCartCards}</>
         ) : (
-          <>
-            <CartEmpty />
-          </>
+          <CartEmpty active={isCartActive}/>
         )}
       </div>
-      {isCartActive && myCart?.length!==0 ? (
+      {isCartActive && myCart?.length !== 0 && (
         <div className={style["place-order-tab"]}>
           <div className={style["amount-container"]}>
-            <h3 className={style["amount-text"]}>{cartConstants.TOTAL_AMOUNT}</h3>
-            <h2 className={style["total-price"]}>{`₹ ${totalPrice}`}</h2>
+            <h3 className={style["amount-text"]}>
+              {cartConstants.TOTAL_AMOUNT}
+            </h3>
+            <h2 className={style["total-price"]}>
+              {currencyConstants.rupee} {convertToRupee(totalPrice)}
+            </h2>
           </div>
           <Button
-            name={buttonNames.PLACE_ORDER}
+            name={buttonConstants.PLACE_ORDER}
             style={style["place-order-button"]}
             onClick={navigateToConfirmOrder}
           ></Button>
         </div>
-      ) : (
-        ""
       )}
     </div>
   );

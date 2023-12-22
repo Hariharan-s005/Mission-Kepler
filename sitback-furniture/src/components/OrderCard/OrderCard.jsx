@@ -1,19 +1,21 @@
-import React from "react";
+import React from 'react';
 import style from './OrderCard.module.css';
-import { convertToRupee } from '../../utils/utils.coversion';
+import { convertToRupee } from '../../utils/coversion.utils';
 import { orderCardConstants } from '../../constants/orderCardConstants';
+import {currencyConstants} from '../../constants/currencyConstants';
 import missingImage from '../../assets/default-image.jpeg';
+
 export const OrderCard = ({ product }) => {
-  const price = convertToRupee(product.price);
-  const missingImageHandler = (e) => {
-    e.target.src = missingImage;
+  const totalPrice = convertToRupee(product.price*product.quantity);
+  const missingImageHandler = (event) => {
+    event.target.src = missingImage;
 }
   return (
     <div className={style["order-card"]}>
       <img src={product.photo} alt={product.name} onError={missingImageHandler}/>
       <div className={style["order-name-price"]}>
         <p>{product.name}</p>
-        <p>{`₹ ${price}`}</p>
+        <p>{currencyConstants.rupee} {totalPrice}</p>
       </div>
       <h3 className={style.quantity}>
         {orderCardConstants.quantity} : {product.quantity}

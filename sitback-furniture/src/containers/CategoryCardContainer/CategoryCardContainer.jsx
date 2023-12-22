@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from "react";
 import style from "./CategoryCardContainer.module.css";
-import { fetchCategory } from "../../services/apiService";
-import { homePageConstants } from "../../constants/homePageConstants";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import Loader from "../../components/Loader/Loader";
+import { fetchCategories } from "../../services/apiService";
+import { homePageConstants } from "../../constants/homePageConstants";
 
 export const CategoryCardContainer = () => {
   const [catogories, setCatogories] = useState([]);
   const [isloading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    fetchCategory().then((data) => {
-      setCatogories(data);
-      setIsLoading(false);
-    });
+    const fetchShoppingCategories = async () => {
+      try {
+        const data = await fetchCategories();
+        setCatogories(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    };
+    fetchShoppingCategories();
   }, []);
 
-  const categoryCards = catogories?.map((card, index) => (
-    <CategoryCard key={index} category={card} />
+  const categoryCards = catogories?.map((card) => (
+    <CategoryCard key={card.id} category={card} />
   ));
+
   return (
     <>
       <div className={style["category-cards-container"]}>
-        <h1>{homePageConstants.CatogoriesHeading}</h1>
-        <h2>{homePageConstants.CatogoriesSubHeading}</h2>
+        <h1>{homePageConstants.categoriesHeading}</h1>
+        <h2>{homePageConstants.catogoriesSubHeading}</h2>
 
         {isloading ? (
           <Loader />

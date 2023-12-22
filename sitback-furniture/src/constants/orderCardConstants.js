@@ -1,3 +1,3 @@
-export const orderCardConstants={
-    quantity:"Quantity"
-  };
+export const orderCardConstants = {
+  quantity: "Quantity",
+};

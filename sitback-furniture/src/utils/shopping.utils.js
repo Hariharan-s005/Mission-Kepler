@@ -1,5 +1,7 @@
+import {localStorageVariableConstants} from '../constants/localStorageVariableConstants';
+
 export const addtoWishList = (product) => {
-  const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
+  const wishlistItems = JSON.parse(localStorage.getItem(`${localStorageVariableConstants.wishlist}`));
   let tempList = [];
   if (wishlistItems == null) {
     tempList = [product];
@@ -7,19 +9,19 @@ export const addtoWishList = (product) => {
     tempList = wishlistItems.filter((item) => item.id !== product.id);
     tempList = [product, ...tempList];
   }
-  localStorage.setItem("wishlist", JSON.stringify(tempList));
+  localStorage.setItem(`${localStorageVariableConstants.wishlist}`, JSON.stringify(tempList));
   return tempList;
 };
 
 export const removeDataFromWishlist = (product) => {
-  const wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  const wishlist = JSON.parse(localStorage.getItem(`${localStorageVariableConstants.wishlist}`));
   let tempList = wishlist.filter((item) => item.id !== product.id);
-  localStorage.setItem("wishlist", JSON.stringify(tempList));
+  localStorage.setItem(`${localStorageVariableConstants.wishlist}`, JSON.stringify(tempList));
   return tempList;
 };
 
 export const addDataToCart = (product, quantity) => {
-  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cart = JSON.parse(localStorage.getItem(`${localStorageVariableConstants.cart}`));
   if (cart == null) {
     let cartProduct = { ...product };
     cartProduct.quantity = 1;
@@ -37,14 +39,8 @@ export const addDataToCart = (product, quantity) => {
       }
     }
   }
-  let totalPrice = JSON.parse(localStorage.getItem("totalprice"));
-  let currentTotalprice = 0;
-  quantity < 0
-    ? (currentTotalprice = totalPrice - parseInt(product.price))
-    : (currentTotalprice = parseInt(product.price) + totalPrice);
-  localStorage.setItem("totalprice", JSON.stringify(currentTotalprice));
-  localStorage.setItem("cart", JSON.stringify(cart));
-  return { cart, currentTotalprice };
+  localStorage.setItem(`${localStorageVariableConstants.cart}`, JSON.stringify(cart));
+  return { cart };
 };
 
 

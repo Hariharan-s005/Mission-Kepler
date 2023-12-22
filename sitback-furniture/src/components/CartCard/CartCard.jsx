@@ -1,14 +1,20 @@
 import React from "react";
 import style from "../CartCard/CartCard.module.css";
-import { convertToRupee } from "../../utils/utils.coversion";
-import { buttonNames } from "../../constants/buttonConstants";
-import missingImage from "../../assets/default-image.jpeg";
 import Button from "../Button/Button";
+import { convertToRupee } from "../../utils/coversion.utils";
+import { buttonConstants } from "../../constants/buttonConstants";
+import { currencyConstants } from "../../constants/currencyConstants";
+import missingImage from "../../assets/default-image.jpeg";
 
-export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, }) => {
-  const missingImageHandler = (e) => {
-    e.target.src = missingImage;
-}
+export const CartCard = ({
+  wishlist,
+  removeFromWishlist,
+  isMyCart,
+  addToCart,
+}) => {
+  const missingImageHandler = (event) => {
+    event.target.src = missingImage;
+  };
   const removeWishlist = () => {
     removeFromWishlist(wishlist);
   };
@@ -16,32 +22,38 @@ export const CartCard = ({ wishlist, removeFromWishlist, isMyCart, addToCart, })
   return (
     <div className={style["cart-cards-container"]}>
       <div className={style["cart-card"]}>
-        <div className={style.imgContainer}>
-          <img src={wishlist.photo} alt={wishlist.name} onError={missingImageHandler}/>
+        <div className={style["cart-image-container"]}>
+          <img
+            src={wishlist.photo}
+            alt={wishlist.name}
+            onError={missingImageHandler}
+          />
         </div>
-        <div className={style.cartdetailsContainer}>
+        <div className={style["cart-details"]}>
           <h3>{wishlist.name}</h3>
-          <h4>₹ {price}</h4>
+          <h4>
+            {currencyConstants.rupee} {price}
+          </h4>
         </div>
         {isMyCart ? (
-          <div className={style.buttonContainer}>
+          <div className={style["button-container"]}>
             <Button
-              name={buttonNames.decrementButton}
-              style={style.aggregateButton}
+              name={buttonConstants.decrementButton}
+              style={style["control-button"]}
               onClick={() => addToCart(wishlist, -1)}
             ></Button>
             <p>{wishlist.quantity}</p>
             <Button
-              name={buttonNames.incrementButton}
-              style={style.aggregateButton}
+              name={buttonConstants.incrementButton}
+              style={style["control-button"]}
               onClick={() => addToCart(wishlist, 1)}
             ></Button>
           </div>
         ) : (
           <Button
-            name={buttonNames.ADD_TO_CART}
+            name={buttonConstants.ADD_TO_CART}
             onClick={removeWishlist}
-            style={style.cartButton}
+            style={style["add-to-cart-button"]}
           ></Button>
         )}
       </div>

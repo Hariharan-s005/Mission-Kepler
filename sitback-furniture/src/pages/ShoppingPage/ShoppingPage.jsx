@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import style from "./ShoppingPage.module.css";
-import Header from "../../components/Header/Header";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import CartContainer from "../../containers/CartContainer/CartContainer";
-import Loader from "../../components/Loader/Loader";
-import { fetchProduct } from "../../services/apiService.jsx";
-import { addtoWishList,removeDataFromWishlist,addDataToCart} from "../../utils/utils.shopping";
-import { convertToRupee } from "../../utils/utils.coversion";
-import { localStorageVariableConstants } from "../../constants/localStorageVariableConstants";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import style from './ShoppingPage.module.css';
+import Header from '../../components/Header/Header';
+import ProductCard from '../../components/ProductCard/ProductCard';
+import CartContainer from '../../containers/CartContainer/CartContainer';
+import PageNotFound from '../../components/PageNotFound/PageNotFound';
+import Loader from '../../components/Loader/Loader';
+import { fetchProducts } from '../../services/apiService.js';
+import {
+  addtoWishList,
+  removeDataFromWishlist,
+  addDataToCart,
+} from '../../utils/shopping.utils';
+import { localStorageVariableConstants } from '../../constants/localStorageVariableConstants';
 
 const ShoppingPage = () => {
   const [wishlist, setWishlist] = useState([]);
   const [cart, setCart] = useState([]);
   const [wishlistActive, setWishlistActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(() =>
-    JSON.parse(localStorage.getItem(localStorageVariableConstants.totalprice))
-  );
   const { categories } = useParams();
-  const [items, setItems] = useState([]);
-  const [isloading,setIsLoading]=useState(true);
+  const [products, setProducts] = useState([]);
+  const [isloading, setIsLoading] = useState(true);
+  const [productfetchFail, setProductsFetchFail] = useState(false);
+  
   const cartTabToggle = (isWishlist, isCart) => {
     setWishlistActive(isWishlist);
     setCartActive(isCart);
@@ -48,17 +51,24 @@ const ShoppingPage = () => {
   };
   const addToCart = (product, quantity) => {
     const cartData = addDataToCart(product, quantity);
-    setTotalPrice(cartData.currentTotalprice);
     setCart(cartData.cart);
     cartTabToggle(false, true);
     return cartData.cart;
   };
 
   useEffect(() => {
-    fetchProduct(categories).then((data) => {
-      setItems(data);
-      setIsLoading(false);
-    });
+    const fetchProductsByCategory = async () => {
+      try {
+        const data = await fetchProducts(categories);
+        setProducts(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+        setProductsFetchFail(true);
+      }
+    };
+    fetchProductsByCategory();
   }, [categories]);
 
   useEffect(() => {
@@ -74,41 +84,50 @@ const ShoppingPage = () => {
     setWishlist(wishListData);
     setStatus();
   }, []);
-  const productCards = items?.map((card, index) => {
+
+  const productCards = products?.map((card) => {
     return (
       <ProductCard
-        key={index}
-        items={card}
+      
+        key={card.id}
+        product={card}
         manageWishlist={manageWishlist}
         manageCart={addToCart}
       />
     );
   });
+
   return (
     <>
-      <Header />
-      {isloading?<Loader/>:
-      <div className={style.container}>
-        <div className={style["product-container"]}>{productCards}</div>
-
-        {(wishlist && wishlist?.length !== 0) ||
-          (cart && cart?.length !== 0) ? (
-          <div>
-            <CartContainer
-              wishlist={wishlist}
-              myCart={cart}
-              addToCart={addToCart}
-              removeFromWishlist={removeFromWishlist}
-              cartTabToggle={cartTabToggle}
-              isWishlistactive={wishlistActive}
-              isCartActive={cartActive}
-              totalPrice={convertToRupee(totalPrice)}
-            />
-          </div>
-        ) : (
-          ""
-        )}
-      </div>}
+      {productfetchFail ? (
+        <PageNotFound />
+      ) : (
+        <>
+          {isloading ? (
+            <Loader />
+          ) : (
+            <>
+              <Header />
+              <div className={style.container}>
+                <div className={style["product-container"]}>{productCards}</div>
+                {(wishlist?.length > 0 || cart?.length > 0) && (
+                  <div>
+                    <CartContainer
+                      wishlist={wishlist}
+                      myCart={cart}
+                      addToCart={addToCart}
+                      removeFromWishlist={removeFromWishlist}
+                      cartTabToggle={cartTabToggle}
+                      isWishlistactive={wishlistActive}
+                      isCartActive={cartActive}
+                    />
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
 export const headerConstants = {
-    headerName: "SITBACK",
-    userName: " Nijin Vinodan"
-  };
+  headerName: "SITBACK",
+  userName: "Nijin Vinodan",
+};

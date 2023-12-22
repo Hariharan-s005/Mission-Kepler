@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 99;
 }
 .page-not-found-container .page-not-found-title {
   font-size: 5rem;

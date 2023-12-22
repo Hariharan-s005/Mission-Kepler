@@ -1,16 +1,16 @@
-import React from "react";
-import style from "./Header.module.css";
-import { Link, NavLink } from "react-router-dom";
-import { FaCaretDown } from "react-icons/fa";
-import { navLinks} from "../../constants/navLinksConstants";
-import { headerConstants } from "../../constants/headerConstants";
-
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { FaCaretDown } from 'react-icons/fa';
+import style from './Header.module.css';
+import { navLinks} from '../../constants/navLinksConstants';
+import { headerConstants } from '../../constants/headerConstants';
+import {navigationConstants} from '../../constants/navigationConstants';
 export const Header = () => {
-  const navItems = navLinks?.map((navItem, index) => {
+  const navItems = navLinks?.map((navItem) => {
     return (
-      <button className={style["nav-button"]} key={index}>
+      <button className={style["nav-button"]} key={navItem.NAME}>
         <NavLink
-          to={navItem.URL}
+          to={navItem.url}
           className={({ isActive }) => (isActive ? style["active-tab"] : "")}
         >
           {navItem.NAME}
@@ -21,7 +21,7 @@ export const Header = () => {
 
   return (
     <header className={style["nav-bar"]}>
-      <Link to={"/"}>
+      <Link to={navigationConstants.backSlash}>
         <h2 className={style["sitback-logo"]}>{headerConstants.headerName}</h2>
       </Link>
       <div className={style["nav-item-container"]}>{navItems}</div>

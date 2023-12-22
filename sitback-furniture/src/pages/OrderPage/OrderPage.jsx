@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { localStorageVariableConstants } from "../../constants/localStorageVariableConstants";
-import Header from "../../components/Header/Header.jsx";
-import CategoryCardContainer from "../../containers/CategoryCardContainer/CategoryCardContainer.jsx";
-import OrderContainer from "../../containers/OrderContainer/OrderContainer.jsx";
+import Header from "../../components/Header/Header";
+import CategoryCardContainer from "../../containers/CategoryCardContainer/CategoryCardContainer";
+import OrderContainer from "../../containers/OrderContainer/OrderContainer";
 
 
 const getOrder = () => {
@@ -15,9 +15,8 @@ export const OrderPage = () => {
   const [myOrder, setMyOrder] = useState(() => getOrder());
   const removeProductFromCart = () => {
     localStorage.removeItem(localStorageVariableConstants.cart);
-    localStorage.removeItem(localStorageVariableConstants.totalprice);
   };
-
+  
   useEffect(() => {
     removeProductFromCart();
   }, []);

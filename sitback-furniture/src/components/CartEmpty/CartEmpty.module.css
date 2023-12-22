@@ -11,5 +11,6 @@
 }
 
 .empty-container .icon {
-  font-size: 2rem;
+  font-size: 3rem;
+  padding-left:1rem;
 }
