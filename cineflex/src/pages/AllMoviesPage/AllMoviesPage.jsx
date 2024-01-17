@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import AllMoviesSection from "../../containers/AllMoviesSection/AllMoviesSection";
 import style from "./AllMoviesPage.module.css";

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ERROR_MESSAGEWindow from "../ErrorMessageWindow/ErrorMessageWindow";
+import ErrorMessageWindow from "../ErrorMessageWindow/ErrorMessageWindow";
 import {
   verifyUser,
   isValidEmail,
@@ -68,7 +68,7 @@ export const LoginForm = ({ setLoginStatus = () => {} }, loginStatus) => {
   return (
     <>
       {error && (
-        <ERROR_MESSAGEWindow
+        <ErrorMessageWindow
           title={error.title}
           message={error.message}
           onClose={errorHandler}
