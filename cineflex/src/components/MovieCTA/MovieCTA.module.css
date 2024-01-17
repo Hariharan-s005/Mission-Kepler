@@ -1,0 +1,38 @@
+.cta-card {
+  width: 14rem;
+  color: #fff;
+}
+
+.cta-card .movie-poster-container img {
+  object-fit: fill;
+  height: 18rem;
+  cursor: pointer;
+}
+
+.cta-card .title-like-container {
+  position: relative;
+  display: flex;
+  padding-top: 0.4rem;
+}
+.cta-card .title-like-container .movie-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.cta-card .title-like-container .like-button-container {
+  position: absolute;
+  top: 1rem;
+  right: -1rem;
+  width: 2rem;
+}
+.cta-card .title-like-container .like-button-container svg {
+  transition: transform 0.2s ease-in-out;
+}
+.cta-card .title-like-container .like-button-container svg:hover {
+  cursor: pointer;
+  transform: scale(1.2) rotate(-15deg);
+}
+
+.cta-card .movie-likes {
+  font-size: 1.1rem;
+  font-weight: 300;
+}

@@ -1,0 +1,29 @@
+.loader-container {
+position: absolute;
+left:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+  background-color: #161616;
+  z-index: 1;
+}
+
+.loader {
+  width: 5rem;
+  height: 5rem;
+  border: 7px solid #161616;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  animation: rotation 0.8s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

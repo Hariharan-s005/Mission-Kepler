@@ -1,0 +1,11 @@
+.error-message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #dbc031, #b78d15);
+  padding: 2rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 300;
+  word-spacing: 0.1rem;
+}

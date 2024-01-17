@@ -1,0 +1,35 @@
+.other-languages-container {
+  padding: 2.5rem 18rem 5rem 8rem;
+  bottom: -65rem;
+  position: absolute;
+}
+.other-languages-container .title {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.other-languages-tiles {
+  color: azure;
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 19rem;
+}
+
+.other-languages-tiles div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid #4a8ee0;
+}
+.other-languages-tiles div h3 {
+  font-size: 1.5rem;
+}
+
+.other-languages-tiles :hover {
+  color: #4a8ee0;
+  cursor: pointer;
+}
