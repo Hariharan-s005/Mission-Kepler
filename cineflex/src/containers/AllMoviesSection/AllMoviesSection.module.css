@@ -1,0 +1,36 @@
+.all-movies-section {
+  width: 50%;
+}
+.all-movies-section .page-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.all-movies-section .all-movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  gap: 2rem;
+  height: 80vh;
+  overflow: scroll;
+}
+
+.all-movies-section .load-more-button {
+  width: 13.5rem;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(to right, #f4a423, #ab8713);
+  border: none;
+  cursor: pointer;
+}
+
+.all-movies-section .all-movies-container::-webkit-scrollbar {
+  display: none;
+}
+.all-movies-section .all-movies-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

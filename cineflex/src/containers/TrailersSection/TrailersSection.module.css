@@ -1,0 +1,46 @@
+.trailers-section {
+  color: #fff;
+  padding: 5rem 18rem 2.5rem 8rem;
+}
+.trailers-section .not-signed-in-text {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+.trailers-section .not-signed-in-text span a{
+  color: #4a8ee0;
+}
+.trailers-section .section-title {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.trailer-container {
+  display: flex;
+  padding-top: 2rem;
+}
+.trailer-container .image-container {
+  height: 16.2rem;
+  width: 71rem;
+  padding-right: 2.4rem;
+}
+
+.trailer-container .trailer-details-container .trailer-title {
+  font-size: 2.2rem;
+  font-weight: 300;
+  padding-bottom: 2.2rem;
+}
+
+.trailer-container .trailer-details-container .trailer-description {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: 300;
+  padding-bottom: 2.2rem;
+}
+
+.trailer-container .trailer-details-container .watch-now-button {
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(to right, #f4a423, #ab8713);
+  border: none;
+}

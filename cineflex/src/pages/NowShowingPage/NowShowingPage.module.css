@@ -1,0 +1,35 @@
+.now-showing-container {
+  height: 91.6vh;
+  padding: 1.5rem 13rem;
+}
+
+.now-showing-container .heading-text {
+  font-size: 1.5rem;
+  color: #4a8ee0;
+}
+
+.now-showing-container .now-showing-title {
+  padding: 1.5rem 0 1rem 0;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 400;
+}
+.now-showing-container .video-container{
+  height: 36rem;
+  width: 82.5rem;
+  overflow: hidden;
+}
+.now-showing-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+
+}
+
+.now-showing-container .now-showing-description {
+  padding-top: 1rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+}

@@ -1,0 +1,6 @@
+.cover-image-container {
+  height: 70vh;
+  background-image: url("../../assets/cover-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

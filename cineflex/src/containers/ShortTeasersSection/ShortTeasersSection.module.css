@@ -1,0 +1,14 @@
+.teasers-section {
+  color: #fff;
+  padding: 2.5rem 18rem 5rem 8rem;
+}
+
+.teasers-section .section-title {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.teasers-section .teasers-container {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
