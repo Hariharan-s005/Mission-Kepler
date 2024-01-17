@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MovieCTA from "../MovieCTA/MovieCTA";
+import MovieCTA from "../../components/MovieCTA/MovieCTA";
 import { getMovies } from "../../services/videoService";
 import { allMoviesPageConstants } from "../../constants/allMoviesPageConstants";
 import style from "./AllMoviesSection.module.css";

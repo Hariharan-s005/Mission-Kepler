@@ -8,7 +8,7 @@ export const NowShowingPage = () => {
       <div className={style["now-showing-container"]}>
         <h2 className={style["heading-text"]}>{nowShowingPageConstants.headingText}</h2>
         <h1 className={style["now-showing-title"]}>{nowShowingPageConstants.title}</h1>
-        <iframe src={nowShowingPageConstants.videoURL} frameborder="0" title={nowShowingPageConstants.title}></iframe>
+        <div className={style["video-container"]}><iframe src={nowShowingPageConstants.videoURL}  title={nowShowingPageConstants.title}></iframe></div>
         <p className={style["now-showing-description"]}>{nowShowingPageConstants.description}</p>
       </div>
     </>

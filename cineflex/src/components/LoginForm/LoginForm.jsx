@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ErrorMessageWindow from "../ErrorMessageWindow/ErrorMessageWindow";
+import ERROR_MESSAGEWindow from "../ErrorMessageWindow/ErrorMessageWindow";
 import {
   verifyUser,
   isValidEmail,
   getUserName,
 } from "../../services/authorisationService";
-import { errorMessageWindowConstants } from "../../constants/errorMessageWindowConstants";
+import { ERROR_MESSAGEWindowConstants } from "../../constants/errorMessageWindowConstants";
+import { localStorageConstants } from "../../constants/localStorageConstants";
 import { navigationConstants } from "../../constants/navigationConstants";
 import { loginFormConstants } from "../../constants/loginFormConstants";
 import style from "./LoginForm.module.css";
@@ -25,12 +26,13 @@ export const LoginForm = ({ setLoginStatus = () => {} }, loginStatus) => {
     let email = userNameRef.current.value;
     let password = passwordRef.current.value;
 
-    console.log(verifyUser(email, password));
-
+    if (email === "" || password === "") {
+      return;
+    }
     if (!verifyUser(email, password)) {
       setError({
-        title: `${errorMessageWindowConstants.title}`,
-        message: `${errorMessageWindowConstants.errorMessage}`,
+        title: `${ERROR_MESSAGEWindowConstants.title}`,
+        message: `${ERROR_MESSAGEWindowConstants.ERROR_MESSAGE}`,
       });
       return;
     }
@@ -41,7 +43,7 @@ export const LoginForm = ({ setLoginStatus = () => {} }, loginStatus) => {
       name: getUserName(email),
     });
     localStorage.setItem(
-      "userName",
+      localStorageConstants.USER_NAME,
       JSON.stringify({
         isLoggedIn: true,
         name: getUserName(email),
@@ -66,7 +68,7 @@ export const LoginForm = ({ setLoginStatus = () => {} }, loginStatus) => {
   return (
     <>
       {error && (
-        <ErrorMessageWindow
+        <ERROR_MESSAGEWindow
           title={error.title}
           message={error.message}
           onClose={errorHandler}
@@ -104,7 +106,7 @@ export const LoginForm = ({ setLoginStatus = () => {} }, loginStatus) => {
             />
           </div>
           <div className={style["login-button-container"]}>
-            <button type="submit">{loginFormConstants.loginButtontext}</button>
+            <button type="submit">{loginFormConstants.LOGIN_BUTTONtext}</button>
           </div>
         </form>
       </div>

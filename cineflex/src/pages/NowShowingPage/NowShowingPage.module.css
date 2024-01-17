@@ -14,10 +14,16 @@
   font-size: 3rem;
   font-weight: 400;
 }
-
-.now-showing-container iframe {
+.now-showing-container .video-container{
   height: 36rem;
   width: 82.5rem;
+  overflow: hidden;
+}
+.now-showing-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+
 }
 
 .now-showing-container .now-showing-description {

@@ -1,8 +1,7 @@
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import style from "./MovieCTA.module.css";
 
-export const MovieCTA = ({ movie, onClick, likes, incrementLikes}) => {
-
+export const MovieCTA = ({ movie, onClick, likes, incrementLikes }) => {
   return (
     <div className={style["cta-card"]}>
       <div
@@ -13,11 +12,16 @@ export const MovieCTA = ({ movie, onClick, likes, incrementLikes}) => {
       </div>
       <div className={style["title-like-container"]}>
         <h2 className={style["movie-title"]}>{movie.movie}</h2>
-        <span onClick={incrementLikes} className={style["like-button-container"]}>
+        <span
+          onClick={incrementLikes}
+          className={style["like-button-container"]}
+        >
           <BsFillHandThumbsUpFill />
         </span>
       </div>
-      <h4 className={style["movie-likes"]}>{likes===0?movie.likes:likes}</h4>
+      <h4 className={style["movie-likes"]}>
+        {likes === 0 ? movie.likes : likes}
+      </h4>
     </div>
   );
 };

@@ -5,9 +5,9 @@ export const loginAuthHandler = () => {
   return login ? login : { isLoggedIn: false, name: "" };
 };
 
-export const isValidEmail=(email) =>{
-    return /\S+@\S+\.\S+/.test(email);
-  }
+export const isValidEmail = (email) => {
+  return /\S+@\S+\.\S+/.test(email);
+};
 
 export const verifyUser = (userEmail, password) => {
   const isAuthorised = userDetails.some((user) => {

@@ -1,4 +1,4 @@
-import { errorMessageWindowConstants } from "../../constants/errorMessageWindowConstants";
+import { ERROR_MESSAGEWindowConstants } from "../../constants/errorMessageWindowConstants";
 import style from "./ErrorMessageWindow.module.css";
 export const ErrorMessageWindow = (props) => {
   return (
@@ -14,7 +14,7 @@ export const ErrorMessageWindow = (props) => {
         </div>
         <div className={style["window-close"]}>
           <button type="button" onClick={props.onClose}>
-            {errorMessageWindowConstants.closeButtonText}
+            {ERROR_MESSAGEWindowConstants.CLOSE_BUTTON_TEXT}
           </button>
         </div>
       </div>

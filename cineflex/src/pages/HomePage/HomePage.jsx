@@ -1,8 +1,8 @@
 import NavBar from "../../components/NavBar/NavBar";
 import ErrorBoundary from "../../components/ErrorBoundaryComponent/ErrorBoundaryComponent";
 import LotteryComponent from "../../components/LotteryComponent/LotteryComponent";
-import TrailersSection from "../../components/TrailersSection/TrailersSection";
-import ShortTeasersSection from "../../components/ShortTeasersSection/ShortTeasersSection";
+import TrailersSection from "../../containers/TrailersSection/TrailersSection";
+import ShortTeasersSection from "../../containers/ShortTeasersSection/ShortTeasersSection";
 import Otherlanguages from "../../components/OtherLanguages/OtherLanguages";
 import style from "./HomePage.module.css";
 

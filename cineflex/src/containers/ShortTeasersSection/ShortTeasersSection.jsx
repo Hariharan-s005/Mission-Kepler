@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Loader from "../Loader/Loader";
-import ShortTeaser from "../ShortTeaser/ShortTeaser";
+import Loader from "../../components/Loader/Loader";
+import ShortTeaser from "../../components/ShortTeaser/ShortTeaser";
 import { getShortTeasers } from "../../services/videoService";
 import { homePageConstants } from "../../constants/homePageConstants";
 import { nowShowingPageConstants } from "../../constants/nowShowingPageConstants";

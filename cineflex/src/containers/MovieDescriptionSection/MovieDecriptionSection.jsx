@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, {useEffect, useRef, useMemo } from "react";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import withAdvertisement from "../../HOC/withAdvertisement";
 import {
   getRandomMovieAdvertisement,
@@ -22,13 +22,12 @@ export const MovieDescriptionSection = ({
   stopAdvertisement,
 }) => {
   const cachedAd = useMemo(() => getRandomMovieAdvertisement(), []);
- 
-
+  const prevSelectedCardRef = useRef(null);
   useEffect(() => {
+
     let interval;
-    
     if (message === "" && timer === 0) {
-      advertisementHandler(false, 3, advertisementConstants.ADVERTISEMENT_INFO);
+      advertisementHandler(false, 15, advertisementConstants.ADVERTISEMENT_INFO);
     } else if (message === advertisementConstants.ADVERTISEMENT_INFO && timer > 0) {
       interval = setInterval(() => {
         advertisementHandler(false, timer - 1, advertisementConstants.ADVERTISEMENT_INFO);
@@ -46,12 +45,19 @@ export const MovieDescriptionSection = ({
       clearInterval(interval);
     };
   }, [
-    selectedCard,
     advertisementHandler,
     timer,
     message,
     stopAdvertisement,
   ]);
+
+  useEffect(() => {
+    prevSelectedCardRef.current = selectedCard;
+  }, [selectedCard]);
+
+  if (selectedCard !== prevSelectedCardRef.current) {
+    advertisementHandler(false, 0, ""); 
+  }
 
   const actorsList = selectedCard?.actors?.map((actor) => (
     <li key={actor}>{actor}</li>

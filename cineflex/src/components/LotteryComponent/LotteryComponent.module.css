@@ -5,15 +5,15 @@
   background: linear-gradient(to right, #dbc031, #b78d15);
   padding: 1rem;
 }
-.lottery-section .lucky-message-container{
-    padding: 1rem;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 300;
-    word-spacing: 0.1rem;
+.lottery-section .lucky-message-container {
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 300;
+  word-spacing: 0.1rem;
 }
-.invalid{
-    border: 1px solid red;
+.invalid {
+  border: 1px solid red;
 }
 .lottery-section .lottery-text {
   color: #fff;
@@ -22,7 +22,7 @@
   word-spacing: 0.1rem;
   padding-right: 2rem;
 }
-.input-container{
+.input-container {
   display: flex;
 }
 .lottery-section input {

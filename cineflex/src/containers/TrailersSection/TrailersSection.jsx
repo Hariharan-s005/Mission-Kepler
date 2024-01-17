@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { loginContext } from "../../contexts/login-context";
-import trailerThumnail from "../../assets/trailer-thumbnail.png";
+import trailerThumbnail from "../../assets/trailer-thumbnail.png";
 import { homePageConstants } from "../../constants/homePageConstants";
 import { navigationConstants } from "../../constants/navigationConstants";
 import style from "./TrailersSection.module.css";
@@ -37,7 +37,7 @@ export const TrailersSection = () => {
       )}
       <div className={style["trailer-container"]}>
         <div className={style["image-container"]}>
-          <img src={trailerThumnail} alt={homePageConstants.trailerTitle} />
+          <img src={trailerThumbnail} alt={homePageConstants.trailerTitle} />
         </div>
         <div className={style["trailer-details-container"]}>
           <h2 className={style["trailer-title"]}>
@@ -46,7 +46,12 @@ export const TrailersSection = () => {
           <p className={style["trailer-description"]}>
             {homePageConstants.description}
           </p>
-          <button className={style["watch-now-button"]}onClick={watchNowButtonHandler}>{homePageConstants.WATCH_NOW}</button>
+          <button
+            className={style["watch-now-button"]}
+            onClick={watchNowButtonHandler}
+          >
+            {homePageConstants.WATCH_NOW}
+          </button>
         </div>
       </div>
     </div>

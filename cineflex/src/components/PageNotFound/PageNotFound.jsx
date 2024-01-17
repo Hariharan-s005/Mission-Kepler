@@ -13,7 +13,8 @@ const PageNotFound = () => {
       </p>
       <h1 className={style["error-code"]}>{pageNotFoundConstants.errorCode}</h1>
       <div className={style["page-not-found-image-container"]}>
-        <img src={BrokenTV} alt={pageNotFoundConstants.imageAlt} /></div>
+        <img src={BrokenTV} alt={pageNotFoundConstants.imageAlt} />
+      </div>
     </div>
   );
 };

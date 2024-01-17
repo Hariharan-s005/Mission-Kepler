@@ -44,10 +44,10 @@ export const LotteryComponent = () => {
   const inputBorderStyle = {
     border: isValidMobileNumberError
       ? loginFormConstants.errorBorderStyle
-      : loginFormConstants.normalBorderStyle
+      : loginFormConstants.normalBorderStyle,
   };
-  const invalidButton={
-    cursor: isValidMobileNumberError ? "auto" :''
+  const invalidButton = {
+    cursor: isValidMobileNumberError ? "auto" : "",
   };
 
   return (
@@ -72,7 +72,9 @@ export const LotteryComponent = () => {
                 style={inputBorderStyle}
                 onChange={handleMobileNumberValidation}
               />
-              <button style={invalidButton}>{lotterySectionConstants.buttonText}</button>
+              <button style={invalidButton}>
+                {lotterySectionConstants.buttonText}
+              </button>
             </div>
           </form>
         </>

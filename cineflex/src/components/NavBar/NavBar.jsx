@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { loginContext } from '../../contexts/login-context';
+import { loginContext } from "../../contexts/login-context";
 import logo from "../../assets/logo.png";
-import { navBarSectionConstants,navBarItemsConstants } from "../../constants/navBarSectionConstants";
+import {
+  navBarSectionConstants,
+  navBarItemsConstants,
+} from "../../constants/navBarSectionConstants";
 import { navigationConstants } from "../../constants/navigationConstants";
 import { buttonConstants } from "../../constants/buttonConstants";
-import style from "./NavBar.module.css";
 import { navBarUserConstants } from "../../constants/navBarUserConstants";
+import { localStorageConstants } from "../../constants/localStorageConstants";
+import style from "./NavBar.module.css";
 
 export const NavBar = () => {
-  
   const location = useLocation();
   const navigate = useNavigate();
   const { loginStatus, setLoginStatus } = useContext(loginContext);
@@ -17,7 +20,7 @@ export const NavBar = () => {
   const logoutHandler = () => {
     setLoginStatus({ isLoggedIn: false, name: "" });
     navigate(navigationConstants.backSlash);
-    localStorage.removeItem("userName");
+    localStorage.removeItem(localStorageConstants.USER_NAME);
   };
 
   const navBarSections = navBarSectionConstants?.map((navSection) => {
@@ -36,11 +39,11 @@ export const NavBar = () => {
     <header className={style["nav-bar"]}>
       <Link to={navigationConstants.backSlash}>
         <div className={style["logo-container"]}>
-          <img src={logo} alt={navBarItemsConstants.logoAlt}/>
+          <img src={logo} alt={navBarItemsConstants.logoAlt} />
         </div>
       </Link>
       {location.pathname !==
-      `${navigationConstants.backSlash}${navigationConstants.login}`&& (
+        `${navigationConstants.backSlash}${navigationConstants.login}` && (
         <>
           <div className={style["nav-section-items"]}>
             {navBarSections}
@@ -59,27 +62,28 @@ export const NavBar = () => {
           </div>
           {loginStatus.isLoggedIn ? (
             <>
-            <div className={style["logout-container"]}>
-            <div className={style["user-name-container"]}>{`${navBarUserConstants.greet} ${loginStatus.name} ${navBarUserConstants.separator}`}</div>
-            <button 
-              onClick={logoutHandler}>
-              {buttonConstants.logoutButton}   
-            </button>
-            </div>
+              <div className={style["logout-container"]}>
+                <div
+                  className={style["user-name-container"]}
+                >{`${navBarUserConstants.greet} ${loginStatus.name} ${navBarUserConstants.separator}`}</div>
+                <button onClick={logoutHandler}>
+                  {buttonConstants.LOGOUT_BUTTON}
+                </button>
+              </div>
             </>
           ) : (
-            <button   
+            <button
               onClick={() =>
                 navigate(
                   `${navigationConstants.backSlash}${navigationConstants.login}`
                 )
-              }>
-                {buttonConstants.loginButton}
+              }
+            >
+              {buttonConstants.LOGIN_BUTTON}
             </button>
           )}
         </>
       )}
-
     </header>
   );
 };

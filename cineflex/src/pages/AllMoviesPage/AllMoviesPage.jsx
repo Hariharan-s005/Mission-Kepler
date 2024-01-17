@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import AllMoviesSection from "../../components/AllMoviesSection/AllMoviesSection";
+import AllMoviesSection from "../../containers/AllMoviesSection/AllMoviesSection";
 import style from "./AllMoviesPage.module.css";
-import MovieDescriptionSection from "../../components/MovieDescriptionSection/MovieDecriptionSection";
+import MovieDescriptionSection from "../../containers/MovieDescriptionSection/MovieDecriptionSection";
 
 export const AllMoviesPage = () => {
   const [selectedCard, setSelectedCard] = useState(null);
