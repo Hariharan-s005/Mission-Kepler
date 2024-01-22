@@ -1,0 +1,18 @@
+.navbar {
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navtext {
+  display: inline;
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-size: 39px;
+  cursor: pointer;
+}
+
+.menu-items {
+  display: flex;
+}

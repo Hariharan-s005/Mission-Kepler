@@ -1,0 +1,16 @@
+.tags {
+  padding-top: 30px;
+  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tags aside {
+  padding: 2px 11px;
+  border-radius: 18px;
+  color: #829fff;
+  border: 1px solid #d1d7ec;
+}
+.tags aside:hover {
+  background-color: #829fff;
+  color: #fff;
+}

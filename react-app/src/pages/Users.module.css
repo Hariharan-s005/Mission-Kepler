@@ -1,0 +1,11 @@
+.user-card-container {
+  margin-top: 83px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 19px;
+}
+.users-page-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin: 147px;
+}

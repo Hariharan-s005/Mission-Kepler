@@ -1,0 +1,18 @@
+li {
+  list-style-type: none;
+}
+li button {
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #9498a3;
+  border-style: none;
+  border-radius: 11px;
+  background-color: #fff;
+  padding: 20px 25px;
+}
+li button:hover {
+  background-color: #829fff;
+  color: #fff;
+  cursor: pointer;
+}
