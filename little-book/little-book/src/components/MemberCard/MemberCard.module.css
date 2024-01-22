@@ -1,0 +1,14 @@
+.member-card {
+  width: calc(100% / 3-10px);
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.member-card {
+  width: 10rem;
+  height: 15rem;
+}
+
+.member-card img {
+  width: 10rem;
+  border-radius: 15px 15px 15px 0;
+}

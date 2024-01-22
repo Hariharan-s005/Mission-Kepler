@@ -1,0 +1,10 @@
+.members-container {
+  width: 35rem;
+  padding: 3rem 2.5rem;
+  background-color: aqua;
+}
+.members-cards-container {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
